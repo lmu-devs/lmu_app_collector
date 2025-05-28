@@ -6,7 +6,6 @@ import schedule
 from data_collector.src.core.base_collector import ScheduledCollector
 from data_collector.src.food.service.canteen_service import CanteenService
 from data_collector.src.food.service.menu_service import MenuFetcher
-from shared.src.core.error_handlers import handle_error
 from shared.src.core.logging import get_food_fetcher_logger
 from shared.src.enums import CanteenEnum
 
@@ -40,10 +39,8 @@ class FoodCollector(ScheduledCollector):
                     menu_service.store_menus(canteen)
                     self.logger.info(f"Successfully updated menu for {canteen.value}")
                 except Exception as e:
-                    error_response = handle_error(e)
                     self.logger.error(
                         f"Error updating menu for canteen {canteen.value}",
-                        extra=error_response["error"]["extra"],
                         exc_info=True,
                     )
                     continue

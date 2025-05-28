@@ -4,7 +4,7 @@ from typing import List
 from sqlalchemy.orm import Session
 
 from shared.src.core.logging import get_food_fetcher_logger
-from shared.src.core.settings import get_settings
+from data_collector.src.settings import get_settings
 from shared.src.enums import CanteenEnum
 from shared.src.services.blurhash_service import BlurhashService
 from shared.src.tables import CanteenImageTable

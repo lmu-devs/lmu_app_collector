@@ -1,5 +1,5 @@
 from shared.src.core.logging import get_cinema_fetcher_logger
-from shared.src.core.settings import get_settings
+from data_collector.src.settings import get_settings
 from shared.src.enums import RatingSourceEnum
 
 settings = get_settings()

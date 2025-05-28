@@ -6,7 +6,7 @@ from sqlalchemy.inspection import inspect
 from sqlalchemy.orm.relationships import RelationshipProperty
 
 from shared.src.core.logging import get_translation_logger
-from shared.src.core.settings import get_settings
+from data_collector.src.settings import get_settings
 from shared.src.enums import LanguageEnum
 from shared.src.tables.language_table import LanguageTable
 

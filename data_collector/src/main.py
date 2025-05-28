@@ -7,11 +7,11 @@ from data_collector.src.core.base_collector import BaseCollector, ScheduledColle
 from data_collector.src.food.food_collector import FoodCollector
 from data_collector.src.library.library_collector import LibraryCollector
 from data_collector.src.link.link_collector import LinkCollector
-from data_collector.src.roomfinder.explore_collector import RoomfinderCollector
+from data_collector.src.roomfinder.roomfinder_collector import RoomfinderCollector
 from data_collector.src.sport.sport_collector import SportCollector
 from data_collector.src.university.university_collector import UniversityCollector
 from shared.src.core.logging import get_main_fetcher_logger
-from shared.src.core.settings import get_settings
+from data_collector.src.settings import get_settings
 
 logger = get_main_fetcher_logger(__name__)
 
@@ -21,13 +21,13 @@ class DataCollectorApp:
         self.settings = get_settings()
         self.is_running = True
         self.collectors: list[BaseCollector] = [
-            LinkCollector(),
-            UniversityCollector(),
+            # LinkCollector(),
+            # UniversityCollector(),
             RoomfinderCollector(),
-            LibraryCollector(),
-            FoodCollector(),
-            SportCollector(),
-            CinemaCollector(),
+            # LibraryCollector(),
+            # FoodCollector(),
+            # SportCollector(),
+            # CinemaCollector(),
         ]
 
     def setup_signal_handlers(self):

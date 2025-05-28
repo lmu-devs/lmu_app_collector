@@ -6,7 +6,7 @@ from data_collector.src.core.services.image_generation_service import (
 from data_collector.src.core.services.remove_background_service import (
     RemoveBackgroundService,
 )
-from shared.src.core.settings import get_settings
+from data_collector.src.settings import get_settings
 from shared.src.enums import ImageFormatEnum, LanguageEnum
 from shared.src.services import (
     BlurhashService,

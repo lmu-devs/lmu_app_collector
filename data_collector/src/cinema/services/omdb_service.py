@@ -3,7 +3,7 @@ from typing import Any, Dict, Optional
 import requests
 
 from shared.src.core.logging import get_cinema_fetcher_logger
-from shared.src.core.settings import get_settings
+from data_collector.src.settings import get_settings
 
 settings = get_settings()
 logger = get_cinema_fetcher_logger(__name__)

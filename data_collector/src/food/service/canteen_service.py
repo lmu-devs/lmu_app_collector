@@ -9,7 +9,6 @@ from data_collector.src.food.service.canteen_opening_status_service import (
 )
 
 from shared.src.core.logging import get_food_fetcher_logger
-from shared.src.core.settings import get_settings
 from shared.src.enums import OpeningHoursTypeEnum
 from shared.src.models import Canteen
 from shared.src.tables import (

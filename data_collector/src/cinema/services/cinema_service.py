@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 
 from data_collector.src.cinema.services.screening_service import ScreeningService
 from shared.src.core.logging import get_cinema_fetcher_logger
-from shared.src.core.settings import get_settings
+from data_collector.src.settings import get_settings
 from shared.src.tables import (
     MovieLocationTable,
     MovieRatingTable,

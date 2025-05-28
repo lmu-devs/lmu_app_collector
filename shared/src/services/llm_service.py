@@ -3,7 +3,7 @@ from typing import Generic, Literal, TypeVar
 import litellm
 from pydantic import BaseModel
 
-from shared.src.core.settings import get_settings
+from data_collector.src.settings import get_settings
 from shared.src.models.llm_message_models import Message, SystemMessage, UserMessage
 from shared.src.settings.llm_settings import AnthropicConfig, OpenAIConfig
 

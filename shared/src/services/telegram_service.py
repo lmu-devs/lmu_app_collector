@@ -4,7 +4,7 @@ import telegram
 from telegram.error import TelegramError
 
 from shared.src.core.logging import get_main_logger
-from shared.src.core.settings import get_settings
+from data_collector.src.settings import get_settings
 
 logger = get_main_logger(__name__)
 

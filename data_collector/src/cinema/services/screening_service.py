@@ -12,7 +12,7 @@ from data_collector.src.cinema.services.omdb_service import OmdbService
 from data_collector.src.cinema.services.tmdb_service import TmdbService
 from data_collector.src.cinema.utils.rating_util import MovieRatingNormalizer
 from shared.src.core.logging import get_cinema_fetcher_logger
-from shared.src.core.settings import get_settings
+from data_collector.src.settings import get_settings
 from shared.src.enums import LanguageEnum, RatingSourceEnum
 from shared.src.tables import (
     MovieLocationTable,

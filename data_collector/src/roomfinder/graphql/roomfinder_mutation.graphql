@@ -1,0 +1,26 @@
+mutation CreateRoomfinderData($data: [create_streets_input!]!) {
+    create_streets_items(data: $data) {
+        id
+        title
+        buildings {
+            building_part_id
+            title
+            address
+            location
+            aliases
+            street
+            floors {
+                id
+                level
+                title
+                map_uri
+                building
+                rooms {
+                    id
+                    title
+                    floor
+                }
+            }
+        }
+    }
+}
