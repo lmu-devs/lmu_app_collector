@@ -41,35 +41,6 @@ def setup_logger(module_name: str, component_name: str, log_file: Optional[str] 
     return logger
 
 
-# API Loggers
-def get_main_logger(module_name: str):
-    return setup_logger(module_name, "main", "main_api")
-
-
-def get_movie_logger(module_name: str):
-    return setup_logger(module_name, "movie", "movie_api")
-
-
-def get_food_logger(module_name: str):
-    return setup_logger(module_name, "food", "food_api")
-
-
-def get_places_logger(module_name: str):
-    return setup_logger(module_name, "places", "places_api")
-
-
-def get_links_logger(module_name: str):
-    return setup_logger(module_name, "links", "links_api")
-
-
-def get_user_logger(module_name: str):
-    return setup_logger(module_name, "user", "user_api")
-
-
-def get_feedback_logger(module_name: str):
-    return setup_logger(module_name, "feedback", "feedback_api")
-
-
 # Data Fetcher Loggers
 def get_main_fetcher_logger(module_name: str):
     return setup_logger(module_name, "main_fetcher", "main_fetcher")

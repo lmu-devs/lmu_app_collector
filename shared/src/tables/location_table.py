@@ -1,10 +1,7 @@
 from sqlalchemy import Column, Float, String
 from sqlalchemy.ext.declarative import declared_attr
 
-from shared.src.core.database import Base
-
-
-class LocationTable(Base):
+class LocationTable():
     """
     Abstract base class for location.
     Declares a location column.

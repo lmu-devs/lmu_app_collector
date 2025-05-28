@@ -12,14 +12,12 @@ from sqlalchemy import (
     UniqueConstraint,
 )
 from sqlalchemy.orm import relationship
-
-from shared.src.core.database import Base
 from shared.src.enums import UniversityEnum
 from shared.src.tables.like_table import LikeTable
 from shared.src.tables.location_table import LocationTable
 
 
-class MovieScreeningTable(Base):
+class MovieScreeningTable():
     __tablename__ = "movie_screenings"
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)

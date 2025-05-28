@@ -15,13 +15,11 @@ from sqlalchemy import (
     UniqueConstraint,
 )
 from sqlalchemy.orm import relationship
-
-from shared.src.core.database import Base
 from shared.src.enums import RatingSourceEnum
 from shared.src.tables.language_table import LanguageTable
 
 
-class MovieTable(Base):
+class MovieTable():
     __tablename__ = "movies"
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
@@ -59,7 +57,7 @@ class MovieTranslationTable(LanguageTable):
     movie = relationship("MovieTable", back_populates="translations")
 
 
-class MovieRatingTable(Base):
+class MovieRatingTable():
     __tablename__ = "movie_ratings"
 
     movie_id = Column(UUID(as_uuid=True), ForeignKey("movies.id"), primary_key=True)
@@ -70,7 +68,7 @@ class MovieRatingTable(Base):
     movie = relationship("MovieTable", back_populates="ratings")
 
 
-class MovieTrailerTable(Base):
+class MovieTrailerTable():
     __tablename__ = "movie_trailers"
 
     id = Column(UUID(as_uuid=True), primary_key=True)

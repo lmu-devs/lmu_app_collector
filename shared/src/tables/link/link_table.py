@@ -1,11 +1,10 @@
 from sqlalchemy import ARRAY, Column, String
 from sqlalchemy.ext.declarative import declared_attr
 
-from shared.src.core.database import Base
 from shared.src.tables.language_table import LanguageTable
 
 
-class LinkTable(Base):
+class LinkTable():
     __abstract__ = True
 
     @declared_attr

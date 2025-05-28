@@ -1,13 +1,12 @@
 from sqlalchemy import ARRAY, JSON, Column, ForeignKey, String
 from sqlalchemy.orm import relationship
 
-from shared.src.core.database import Base
 from shared.src.tables.image_table import ImageTable
 from shared.src.tables.language_table import LanguageTable
 from shared.src.tables.location_table import LocationTable
 
 
-class CinemaTable(Base):
+class CinemaTable():
     __tablename__ = "cinemas"
 
     id = Column(String, primary_key=True)
@@ -25,7 +24,7 @@ class CinemaTable(Base):
     screenings = relationship("MovieScreeningTable", back_populates="cinema")
 
 
-class CinemaImageTable(ImageTable, Base):
+class CinemaImageTable(ImageTable):
     __tablename__ = "cinema_images"
 
     cinema_id = Column(String, ForeignKey("cinemas.id", ondelete="CASCADE"), nullable=False)

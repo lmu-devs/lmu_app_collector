@@ -1,10 +1,8 @@
 from sqlalchemy import Column, ForeignKey, Integer, String
 from sqlalchemy.orm import relationship
 
-from shared.src.core.database import Base
 
-
-class RoomTable(Base):
+class RoomTable():
     __tablename__ = "rooms"
 
     id = Column(String, primary_key=True)

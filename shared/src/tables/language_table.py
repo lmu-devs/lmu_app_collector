@@ -1,10 +1,8 @@
 from sqlalchemy import Column, DateTime, String, func
 from sqlalchemy.ext.declarative import declared_attr
 
-from shared.src.core.database import Base
 
-
-class LanguageTable(Base):
+class LanguageTable():
     """
     Abstract base class for language translations.
     Declares a language and a translation column.

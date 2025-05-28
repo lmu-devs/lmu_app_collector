@@ -12,13 +12,11 @@ from sqlalchemy import (
     func,
 )
 from sqlalchemy.orm import relationship
-
-from shared.src.core.database import Base
 from shared.src.tables.image_table import ImageTable
 from shared.src.tables.language_table import LanguageTable
 
 
-class DishTable(Base):
+class DishTable():
     __tablename__ = "dishes"
 
     id = Column(UUID(as_uuid=True), primary_key=True)
@@ -50,7 +48,7 @@ class PriceCategory(enum.Enum):
     GUEST = "guests"
 
 
-class DishPriceTable(Base):
+class DishPriceTable():
     __tablename__ = "dish_prices"
 
     id = Column(Integer, primary_key=True, index=True)
@@ -67,7 +65,7 @@ class DishPriceTable(Base):
         return f"<Price(id='{self.id}', category='{self.category}', base_price='{self.base_price}', price_per_unit='{self.price_per_unit}', unit='{self.unit}')>"
 
 
-class DishImageTable(ImageTable, Base):
+class DishImageTable(ImageTable):
     __tablename__ = "dish_images"
 
     dish_id = Column(
@@ -81,7 +79,7 @@ class DishImageTable(ImageTable, Base):
 
 
 # Table to represent the many-to-many relationship between dishes and users
-class DishLikeTable(Base):
+class DishLikeTable():
     __tablename__ = "dish_likes"
 
     id = Column(Integer, primary_key=True, index=True)

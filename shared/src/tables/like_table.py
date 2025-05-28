@@ -2,10 +2,8 @@ from sqlalchemy import Column, DateTime, ForeignKey, func
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.ext.declarative import declared_attr
 
-from shared.src.core.database import Base
 
-
-class LikeTable(Base):
+class LikeTable():
     """
     Abstract base class for likes.
     Declares a user_id column.

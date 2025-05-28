@@ -1,10 +1,8 @@
 from sqlalchemy import Column, Time
 from sqlalchemy.ext.declarative import declared_attr
 
-from shared.src.core.database import Base
 
-
-class TimeRange(Base):
+class TimeRange():
     """
     Abstract base class for time range.
     Declares a time range column.

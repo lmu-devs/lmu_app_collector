@@ -10,14 +10,12 @@ from sqlalchemy import (
     func,
 )
 from sqlalchemy.orm import relationship
-
-from shared.src.core.database import Base
 from shared.src.enums import CanteenTypeEnum, OpeningHoursTypeEnum, WeekdayEnum
 from shared.src.tables.image_table import ImageTable
 from shared.src.tables.location_table import LocationTable
 
 
-class CanteenTable(Base):
+class CanteenTable():
     __tablename__ = "canteens"
 
     id = Column(String, primary_key=True, nullable=False)
@@ -48,7 +46,7 @@ class CanteenTable(Base):
         return len(self.likes)
 
 
-class CanteenStatusTable(Base):
+class CanteenStatusTable():
     __tablename__ = "canteen_status"
 
     canteen_id = Column(
@@ -75,7 +73,7 @@ class CanteenLocationTable(LocationTable):
     canteen = relationship("CanteenTable", back_populates="location")
 
 
-class CanteenOpeningHoursTable(Base):
+class CanteenOpeningHoursTable():
     __tablename__ = "canteen_opening_hours"
 
     canteen_id = Column(String, ForeignKey("canteens.id", ondelete="CASCADE"), primary_key=True)
@@ -88,7 +86,7 @@ class CanteenOpeningHoursTable(Base):
 
 
 # Table to represent the many-to-many relationship between dishes and users
-class CanteenLikeTable(Base):
+class CanteenLikeTable():
     __tablename__ = "canteen_likes"
 
     canteen_id = Column(String, ForeignKey("canteens.id", ondelete="CASCADE"), primary_key=True)
@@ -104,7 +102,7 @@ class CanteenLikeTable(Base):
 
 
 # Table to represent the many-to-many relationship between canteens and images
-class CanteenImageTable(ImageTable, Base):
+class CanteenImageTable(ImageTable):
     __tablename__ = "canteen_images"
 
     canteen_id = Column(String, ForeignKey("canteens.id", ondelete="CASCADE"), nullable=False)

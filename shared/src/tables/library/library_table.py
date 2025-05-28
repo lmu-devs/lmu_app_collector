@@ -3,14 +3,13 @@ from typing import List
 from sqlalchemy import ARRAY, JSON, Column, ForeignKey, String
 from sqlalchemy.orm import Mapped, relationship
 
-from shared.src.core.database import Base
 from shared.src.tables.language_table import LanguageTable
 from shared.src.tables.library.library_area_table import LibraryAreaTable
 from shared.src.tables.like_table import LikeTable
 from shared.src.tables.location_table import LocationTable
 
 
-class LibraryTable(Base):
+class LibraryTable():
     __tablename__ = "libraries"
     id = Column(String, primary_key=True)
     hash = Column(String)

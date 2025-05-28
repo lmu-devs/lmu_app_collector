@@ -7,8 +7,7 @@ from data_collector.src.food.service.canteen_images_service import CanteenImageS
 from data_collector.src.food.service.canteen_opening_status_service import (
     CanteenOpeningStatusService,
 )
-from shared.src.core.database import Database, get_db
-from shared.src.core.exceptions import DataProcessingError
+
 from shared.src.core.logging import get_food_fetcher_logger
 from shared.src.core.settings import get_settings
 from shared.src.enums import OpeningHoursTypeEnum
@@ -80,7 +79,7 @@ class CanteenService:
             self.db.rollback()
             message = f"Error while storing canteen data: {str(e)}"
             logger.error(message)
-            raise DataProcessingError(message)
+            raise Exception(message)
 
     def _store_opening_hours(self, canteen: Canteen):
         """Helper method to store opening hours for a canteen."""
@@ -114,19 +113,12 @@ class CanteenService:
             logger.info("=" * 40 + "\n")
         except Exception as e:
             logger.error(f"Error while updating canteen database: {str(e)}")
-        finally:
-            self.db.close()
 
 
 def main():
-    settings = get_settings()
-    Database(settings=settings)
-    db = next(get_db())
-    try:
-        canteen_service = CanteenService(db)
-        canteen_service.update_canteen_database()
-    finally:
-        db.close()
+    canteen_service = CanteenService()
+    canteen_service.update_canteen_database()
+
 
 
 if __name__ == "__main__":

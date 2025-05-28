@@ -1,11 +1,10 @@
 from sqlalchemy import Column, ForeignKey, String
 from sqlalchemy.orm import relationship
 
-from shared.src.core.database import Base
 from shared.src.tables.language_table import LanguageTable
 
 
-class FacultyTable(Base):
+class FacultyTable():
     __tablename__ = "faculties"
 
     id = Column(String, primary_key=True)

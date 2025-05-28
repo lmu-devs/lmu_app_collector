@@ -4,7 +4,6 @@ from typing import Optional
 
 import schedule
 
-from shared.src.core.database import get_db
 from shared.src.core.logging import get_main_fetcher_logger
 
 
@@ -27,12 +26,8 @@ class BaseCollector(ABC):
 
     async def collect(self):
         """Public method to collect data with database handling"""
-        db = next(get_db())
-        try:
-            await self._collect_data(db)
-            self.logger.info(f"✅ Collected data {self.name}")
-        finally:
-            db.close()
+        await self._collect_data()
+        self.logger.info(f"✅ Collected data {self.name}")
 
     async def run(self):
         """Main run loop for the collector - runs once"""

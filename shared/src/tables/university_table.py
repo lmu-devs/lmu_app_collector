@@ -1,12 +1,11 @@
 from sqlalchemy import Column, Enum, ForeignKey, String
 from sqlalchemy.orm import relationship
 
-from shared.src.core.database import Base
 from shared.src.enums import UniversityEnum
 from shared.src.tables.language_table import LanguageTable
 
 
-class UniversityTable(Base):
+class UniversityTable():
     __tablename__ = "universities"
 
     id = Column(Enum(UniversityEnum), primary_key=True, nullable=False, index=True)

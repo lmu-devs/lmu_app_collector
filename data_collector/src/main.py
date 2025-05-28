@@ -3,13 +3,13 @@ import signal
 import sys
 
 from data_collector.src.cinema.cinema_collector import CinemaCollector
+from data_collector.src.core.base_collector import BaseCollector, ScheduledCollector
 from data_collector.src.food.food_collector import FoodCollector
 from data_collector.src.library.library_collector import LibraryCollector
 from data_collector.src.link.link_collector import LinkCollector
 from data_collector.src.roomfinder.explore_collector import RoomfinderCollector
 from data_collector.src.sport.sport_collector import SportCollector
 from data_collector.src.university.university_collector import UniversityCollector
-from shared.src.core.database import Database, table_creation
 from shared.src.core.logging import get_main_fetcher_logger
 from shared.src.core.settings import get_settings
 
@@ -20,20 +20,15 @@ class DataCollectorApp:
     def __init__(self):
         self.settings = get_settings()
         self.is_running = True
-        self.collectors = [
+        self.collectors: list[BaseCollector] = [
             LinkCollector(),
             UniversityCollector(),
             RoomfinderCollector(),
             LibraryCollector(),
-            # FoodCollector(),
+            FoodCollector(),
             SportCollector(),
             CinemaCollector(),
         ]
-
-    async def setup(self):
-        """Initialize database and other resources"""
-        Database(settings=self.settings)
-        table_creation()
 
     def setup_signal_handlers(self):
         """Setup graceful shutdown handlers"""
@@ -51,7 +46,6 @@ class DataCollectorApp:
         logger.info("Data Fetcher Starting")
 
         try:
-            await self.setup()
 
             tasks = [asyncio.create_task(collector.run()) for collector in self.collectors]
 

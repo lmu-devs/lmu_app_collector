@@ -15,14 +15,12 @@ from sqlalchemy import (
     func,
 )
 from sqlalchemy.orm import relationship
-
-from shared.src.core.database import Base
 from shared.src.enums import WeekdayEnum
 from shared.src.tables import LanguageTable
 from shared.src.tables.location_table import LocationTable
 
 
-class SportTypeTable(Base):
+class SportTypeTable():
     __tablename__ = "sport_type"
 
     id = Column(String, primary_key=True)
@@ -44,7 +42,7 @@ class SportTypeTranslationTable(LanguageTable):
     sport_type = relationship("SportTypeTable", back_populates="translations")
 
 
-class SportCourseTable(Base):
+class SportCourseTable():
     __tablename__ = "sport_course"
 
     id = Column(String, primary_key=True)
@@ -82,7 +80,7 @@ class SportCourseTranslationTable(LanguageTable):
     sport_course = relationship("SportCourseTable", back_populates="translations")
 
 
-class SportCourseTimeSlotTable(Base):
+class SportCourseTimeSlotTable():
     __tablename__ = "sport_course_time_slot"
 
     id = Column(UUID, primary_key=True, default=uuid4)

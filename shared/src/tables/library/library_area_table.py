@@ -2,13 +2,11 @@ from typing import List
 
 from sqlalchemy import JSON, Column, Enum, ForeignKey, Integer, String
 from sqlalchemy.orm import Mapped, relationship
-
-from shared.src.core.database import Base
 from shared.src.enums import WeekdayEnum
 from shared.src.tables.language_table import LanguageTable
 
 
-class LibraryAreaTable(Base):
+class LibraryAreaTable():
     __tablename__ = "library_areas"
 
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
@@ -33,7 +31,7 @@ class LibraryAreaTranslationTable(LanguageTable):
     area = relationship("LibraryAreaTable", back_populates="translations")
 
 
-class LibraryAreaOpeningHoursTable(Base):
+class LibraryAreaOpeningHoursTable():
     __tablename__ = "library_area_opening_hours"
 
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)

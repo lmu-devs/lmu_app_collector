@@ -4,8 +4,6 @@ from enum import Enum
 from sqlalchemy import ARRAY, UUID, Column, DateTime, ForeignKey, String
 from sqlalchemy.orm import relationship
 
-from shared.src.core.database import Base
-
 
 class FeedbackRating(str, Enum):
     BAD = "BAD"
@@ -19,7 +17,7 @@ class FeedbackType(str, Enum):
     GENERAL = "GENERAL"
 
 
-class FeedbackTable(Base):
+class FeedbackTable():
     __tablename__ = "feedback"
 
     id = Column(UUID(as_uuid=True), primary_key=True)

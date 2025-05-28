@@ -1,11 +1,10 @@
 from sqlalchemy import ARRAY, Column, ForeignKey, String
 from sqlalchemy.orm import relationship
 
-from shared.src.core.database import Base
 from shared.src.tables.location_table import LocationTable
 
 
-class BuildingTable(Base):
+class BuildingTable():
     __tablename__ = "buildings"
 
     building_part_id = Column(String, primary_key=True)

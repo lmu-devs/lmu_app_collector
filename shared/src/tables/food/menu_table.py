@@ -12,10 +12,8 @@ from sqlalchemy import (
 )
 from sqlalchemy.orm import relationship
 
-from shared.src.core.database import Base
 
-
-class MenuDishAssociation(Base):
+class MenuDishAssociation():
     __tablename__ = "menu_dish_associations"
 
     id = Column(Integer, primary_key=True, index=True)
@@ -34,7 +32,7 @@ class MenuDishAssociation(Base):
         return f"<MenuDishAssociation(dish_id='{self.dish_id}', date='{self.menu_day_date}', canteen_id='{self.canteen_id}')>"
 
 
-class MenuDayTable(Base):
+class MenuDayTable():
     __tablename__ = "menu_days"
 
     date = Column(Date, primary_key=True)

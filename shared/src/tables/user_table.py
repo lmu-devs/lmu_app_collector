@@ -3,10 +3,8 @@ import uuid
 from sqlalchemy import UUID, Column, DateTime, String, func
 from sqlalchemy.orm import relationship
 
-from shared.src.core.database import Base
 
-
-class UserTable(Base):
+class UserTable():
     __tablename__ = "users"
 
     id = Column(UUID(as_uuid=True), primary_key=True, index=True, default=uuid.uuid4)
